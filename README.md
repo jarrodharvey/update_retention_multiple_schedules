@@ -12,7 +12,7 @@ Open the .Rproject file in RStudio, and load the required packages from the R co
 renv::restore()
 ```
 
-You can adapt this to bulk update your own disposal schedule! 
+By default the script will use the prov data in the data/prov_sample_data folder, but you can adapt this to bulk update your own disposal schedule! 
 
 In the line below:
 
