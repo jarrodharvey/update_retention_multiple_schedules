@@ -30,7 +30,7 @@ categories_to_update <- left_join(
   replacement_retentions, rda,
   by = c("RDA", "NUMBER")
 ) %>%
-  relocate(contains("years"), .after = last_col()) %>%
+  relocate("New retention (years)", .after = last_col()) %>%
   modify_at(
     "New retention (years)",
     ~ paste(.x, "years") %>%
