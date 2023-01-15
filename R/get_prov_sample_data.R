@@ -1,7 +1,7 @@
 get_prov_sample_data <- function() {
   # Get dataset consisting of some PROV RDA files
   rda_categories_docx <-
-    list.files("data/prov_sample_data", full.names = TRUE, pattern = "\\.docx") %>%
+    list.files("data/prov_sample_content", full.names = TRUE, pattern = "\\.docx") %>%
     pblapply(., convert_docx_to_table) %>%
     bind_rows() %>%
     filter(
@@ -13,7 +13,7 @@ get_prov_sample_data <- function() {
     ) %>%
     left_join(
       .,
-      read_excel("data/prov_sample_data/pros_reference_index.xlsx"),
+      read_excel("data/prov_sample_content/pros_reference_index.xlsx"),
       by = c("rda" = "File name")
     ) %>%
     relocate(Coverage, 1) %>%
@@ -22,7 +22,7 @@ get_prov_sample_data <- function() {
       ~ str_remove(.x, "^(Permanent|Temporary) ")
     )
   
-  common_admin_functions <- read_excel("data/prov_sample_data/0701var7.xlsx") %>%
+  common_admin_functions <- read_excel("data/prov_sample_content/0701var7.xlsx") %>%
     filter(grepl("(\\d+\\.){2}\\d+", .$NUMBER)) %>%
     transmute(
       Coverage = "Common Administrative Functions",
