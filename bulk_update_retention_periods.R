@@ -28,6 +28,10 @@ walk(list.files("R", full.names = TRUE), source)
 # rda <- YOUR_RDA_DF_HERE
 rda <- get_prov_sample_data()
 
+if (!("data.frame" %in% class(rda))) {
+  stop("Make sure that the rda object you want to bulk update is a data frame!")
+}
+
 if (!every(c("RDA", "NUMBER", "DISPOSAL ACTION"), ~ .x %in% names(rda))) {
   stop(
     glue("Your rda variable MUST contain the columns RDA, NUMBER and ",
