@@ -29,3 +29,5 @@ The rda variable MUST have the below columns:
 3. DISPOSAL ACTION: The disposal action, e.g. "Destroy 7 years after last action"
 
 Make sure that the file in data/new_retention_periods.xlsx is filled in to reflect the changes to retention periods and the script will do the rest!
+
+To run the script, simply source bulk_update_retention_periods.R from within RStudio.

@@ -1,5 +1,7 @@
 rm(list = ls())
-cat("\1")
+cat("\14")
+
+start_time <- Sys.time()
 
 # Load packages####
 library('purrr')
@@ -25,6 +27,7 @@ walk(list.files("R", full.names = TRUE), source)
 # 1. RDA: a unique identifier for the source document, e.g. "0901var1"
 # 2. NUMBER: a unique identifier for the category within the source document, e.g. 5.4.2
 # 3. DISPOSAL ACTION: The disposal action, e.g. "Destroy 7 years after last action"
+# rda <- YOUR_RDA_DF_HERE
 rda <- get_prov_sample_data()
 
 if (!every(c("RDA", "NUMBER", "DISPOSAL ACTION"), ~ .x %in% names(rda))) {
@@ -95,3 +98,7 @@ walk2(
     )
   }
 )
+
+end_time <- Sys.time()
+
+print(end_time - start_time)
