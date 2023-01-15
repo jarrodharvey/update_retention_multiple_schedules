@@ -8,6 +8,13 @@ extract_relevant_columns <- function(rda_page) {
     as.list() %>%
     map(~ na_if(.x, "")) %>%
     unname() %>%
+    # The script 'guesses' what the description column is based on which column
+    # contains the most text. Somewhere this can fail is when it comes to
+    # record storage and maintenance requirements (which can contain more
+    # text than the description column). The workaround that works in this 
+    # SPECIFIC instance is to simply not include columns that contain the 
+    # keyword "APROSS", although this would of course cause problems if a legitimate
+    # description column actually contained "APROSS"!
     map(
       ~ if (
         grepl("APROSS", .x) %>%

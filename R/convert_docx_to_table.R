@@ -1,6 +1,6 @@
 convert_docx_to_table <- function(docx_file) {
   if (!exists("docx_file")) {
-    docx_file <- list.files("data/prov_sample_data", full.names = TRUE) %>%
+    docx_file <- list.files("data/prov_sample_content", full.names = TRUE) %>%
       sample(1)
   }
   
