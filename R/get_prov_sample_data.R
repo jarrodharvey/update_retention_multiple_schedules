@@ -13,7 +13,7 @@ get_prov_sample_data <- function() {
     ) %>%
     left_join(
       .,
-      read_excel("data/pros_reference_index.xlsx"),
+      read_excel("data/prov_sample_data/pros_reference_index.xlsx"),
       by = c("rda" = "File name")
     ) %>%
     relocate(Coverage, 1) %>%

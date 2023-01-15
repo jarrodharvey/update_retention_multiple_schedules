@@ -1,8 +1,6 @@
 rm(list = ls())
 cat("\14")
 
-start_time <- Sys.time()
-
 # Load packages####
 library('purrr')
 library('magrittr')
@@ -98,7 +96,3 @@ walk2(
     )
   }
 )
-
-end_time <- Sys.time()
-
-print(end_time - start_time)
